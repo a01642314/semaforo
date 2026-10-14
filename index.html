@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Semaforo — ESP32</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Réplica del frame "iPad mini 8.3 - 1" de tu Figma:
+       caja STATUS a la izquierda, semáforo vertical a la derecha
+       (verde arriba, amarillo en medio, rojo abajo). -->
+  <main class="frame">
+    <section class="status-box" aria-live="polite">
+      <div class="status-title">STATUS</div>
+      <div class="status-luz" id="texto-estado">ROJO</div>
+      <div class="status-tiempo"><span id="numero">20</span><small>s</small></div>
+      <div class="status-detalle" id="detalle">Pin 2 · 20s totales</div>
+      <div class="status-conexion"><span id="punto" class="punto sim"></span><span id="nota-fuente">SIMULADO</span></div>
+    </section>
+
+    <section class="semaforo" aria-label="Semáforo">
+      <div id="luz-verde" class="luz verde"></div>
+      <div id="luz-amarillo" class="luz amarillo"></div>
+      <div id="luz-rojo" class="luz rojo"></div>
+    </section>
+  </main>
+
+  <footer class="leyenda">
+    <span>Rojo · GPIO 2 · 20 s</span>
+    <span>Verde · GPIO 5 · 15 s</span>
+    <span>Amarillo · GPIO 4 · 5 s</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

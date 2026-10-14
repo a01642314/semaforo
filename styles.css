@@ -1,0 +1,87 @@
+/* Réplica del diseño Figma "Semaforo / iPad mini 8.3 - 1":
+   fondo blanco, caja STATUS gris con borde negro grueso,
+   semáforo vertical gris con verde arriba, amarillo en medio, rojo abajo. */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: #ffffff;
+  color: #000;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 24px;
+}
+
+.frame {
+  display: flex;
+  align-items: center;
+  gap: clamp(40px, 8vw, 110px);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Caja STATUS (izquierda en Figma) */
+.status-box {
+  width: min(400px, 80vw);
+  background: #d9d9d9;
+  border: 5px solid #000;
+  padding: 22px 26px 18px;
+  text-align: center;
+}
+.status-title {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  letter-spacing: .04em;
+  font-weight: 400;
+}
+.status-luz {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 800;
+  letter-spacing: .06em;
+  margin-top: 6px;
+}
+.status-tiempo {
+  font-size: clamp(2.6rem, 6vw, 4rem);
+  font-weight: 800;
+  line-height: 1.1;
+}
+.status-tiempo small { font-size: 1.4rem; font-weight: 400; margin-left: 4px; }
+.status-detalle { font-size: 1rem; margin-top: 4px; }
+.status-conexion {
+  display: flex; align-items: center; justify-content: center;
+  gap: 8px; margin-top: 10px;
+  font-size: .8rem; letter-spacing: .08em; font-weight: 700;
+}
+.punto { width: 12px; height: 12px; border-radius: 50%; border: 2px solid #000; }
+.punto.sim { background: #ffcf00; }
+.punto.live { background: #00c853; }
+
+/* Semáforo (derecha en Figma) */
+.semaforo {
+  background: #d9d9d9;
+  border: 5px solid #000;
+  border-radius: 70px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.luz {
+  width: clamp(90px, 12vw, 120px);
+  height: clamp(90px, 12vw, 120px);
+  border-radius: 50%;
+  border: 5px solid #000;
+  background: #b5b5b5; /* apagada: gris, conserva el borde negro del diseño */
+  transition: background .2s ease, box-shadow .2s ease;
+}
+.luz.verde.on { background: #39e639; box-shadow: 0 0 26px rgba(57, 230, 57, .9); }
+.luz.amarillo.on { background: #ffff00; box-shadow: 0 0 26px rgba(255, 235, 0, .9); }
+.luz.rojo.on { background: #f52a2a; box-shadow: 0 0 26px rgba(245, 42, 42, .9); }
+
+.leyenda {
+  display: flex; gap: 18px; flex-wrap: wrap; justify-content: center;
+  font-size: .85rem; color: #333;
+}
